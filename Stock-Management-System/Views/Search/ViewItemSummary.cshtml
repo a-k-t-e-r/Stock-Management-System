@@ -1,0 +1,138 @@
+﻿@model Stock_Management_System.Models.SearchAndViewItemsSummary
+
+@{
+    ViewBag.Title = "ViewItemSummary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search & View Item Summary</h2>
+<hr />
+@using (Html.BeginForm("ViewItemSummary", "Search"))
+{
+    <div style="float: left;">
+        <div class="form-group">
+            @Html.LabelFor(s => s.CompanyId, "Company:")
+            @Html.DropDownListFor(s => s.CompanyId, new SelectList(ViewBag.companies, "Id", "Name"), "Select Any Company", new { @Class = "form-control" })
+            @Html.ValidationMessageFor(s => s.CompanyId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.CategoryId, "Category:")
+            @Html.DropDownListFor(s => s.CategoryId, new SelectList(ViewBag.categories, "Id", "Name"), "Select Any Category", new { @Class = "form-control" })
+            @Html.ValidationMessageFor(s => s.CategoryId)
+        </div>
+    </div>
+    <br />
+    <div class="form-group" style="float: right;">
+        <button type="button" onclick="Search()" class="btn btn-default" style="float: right; width: 300px;"><b>S E A R C H</b></button>
+    </div>
+    <br /><br /><br /><br /><br /><br />
+    <hr />
+    <table class="table" id="itemSearchTable"></table>
+}
+<br/><br/><br/><br/><br/>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+    function Search() {
+        $('#itemSearchTable').empty();
+        $('#itemSearchTable').addClass("table table-bordered");
+        $('#itemSearchTable').append('<thead class="thead-dark"><tr><th style="text-align: center;">#Sl. No.</th><th style="text-align: center;">Item Name</th><th style="text-align: center;">Company</th><th style="text-align: center;">Category</th><th style="text-align: center;">Available Quantity</th><th style="text-align: center;">Recorder Level</th></tr></thead><tbody style="text-align: center;">');
+        var sum = 0;
+        var companyId = $('#CompanyId option:selected').val();
+        var categoryId = $('#CategoryId option:selected').val();
+        var itemId = [];
+        var availableQuantity = [];
+        var stockInQuantity = [];
+        var itemName = [];
+        var companyName = [];
+        var categoryName = [];
+
+        sum = 0;
+        $.ajax({
+            url: '/Search/GetSelectedStock',
+            type: "POST",
+            dataType: "JSON",
+            data: { id: companyId },
+            success: function (data) {
+                $.each(data, function (key, value) {
+                    itemId[sum] = value.ItemId;
+                    availableQuantity[sum] = value.AvailableQuantity;
+                    stockInQuantity[sum] = value.StockInQuantity;
+
+                    sum = sum + 1;
+                });
+
+                for (var itm = 0; itm < itemId.length; itm++) {
+                    sum = 0;
+
+                    $.ajax({
+                        url: '/Search/GetSelectedItem',
+                        type: "POST",
+                        dataType: "JSON",
+                        data: { id: itemId[itm] },
+                        success: function (data) {
+                            itemName[sum] = data.Name;
+                            //alert(1 + 1 + ' - ' + itemName[sum] + ' - ' + availableQuantity[1] + ' - ' + stockInQuantity[1]);
+                            sum++;
+
+                            if (sum == itemId.length) {
+                                for (var itm = 0; itm < itemId.length; itm++) {
+                                    sum = 0;
+
+                                    if (companyId != 0) {
+                                        $.ajax({
+                                            url: '/Search/GetSelectedCompany',
+                                            type: "POST",
+                                            dataType: "JSON",
+                                            data: { id: companyId },
+                                            success: function (data) {
+                                                companyName[sum] = data.Name;
+                                                //alert(companyName[sum]);
+                                                sum++;
+
+                                                if (sum == itemId.length) {
+                                                    for (var itm = 0; itm < itemId.length; itm++) {
+                                                        sum = 0;
+                                                        serialNo = 0;
+
+                                                        if (categoryId != 0) {
+                                                            $.ajax({
+                                                                url: '/Search/GetSelectedCategory',
+                                                                type: "POST",
+                                                                dataType: "JSON",
+                                                                data: { id: categoryId },
+                                                                success: function (data) {
+                                                                    categoryName[sum] = data.Name;
+                                                                    //alert(itemName[sum] + ' - ' + companyName[sum] + ' - ' + categoryName[sum] + ' - ' + availableQuantity[sum] + ' - ' + stockInQuantity[sum]);
+                                                                    $('#itemSearchTable').append('<tr><td>' + ++serialNo + '</td><td>' + itemName[sum] + '</td><td>' + companyName[sum] + '</td><td>' + categoryName[sum] + '</td><td>' + availableQuantity[sum] + '</td><td>' + stockInQuantity[sum] + '</td></tr></tbody>');
+                                                                    sum++;
+                                                                }
+                                                            });
+                                                        } else {
+                                                            categoryName[sum] = 'No-Value';
+                                                            sum++;
+                                                        }
+
+                                                    }
+                                                }
+                                            }
+                                        });
+                                    } else {
+                                        companyName[sum] = 'No-Value';
+                                        sum++;
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
+</script>
+}

@@ -1,0 +1,45 @@
+﻿@model Stock_Management_System.Models.Category
+
+@{
+    ViewBag.Title = "Setup Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Setup Category</h2>
+<hr/>
+@using (Html.BeginForm("SaveCategory", "Setup"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Name, "Provide Category Name:")
+        @Html.TextBoxFor(c => c.Name, new { @Class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Name)
+        <br />
+        <button type="submit" class="btn btn-block" style="width: 283px;"><b>S A V E</b></button>
+    </div>
+    <hr/>
+    <div>
+        <h4>Category Lists</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">Serial No.</th>
+                    <th class="text-center">Category Names</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.categories != null)
+                {
+                    int serial = 0;
+
+                    foreach (var category in ViewBag.categories)
+                    {
+                        <tr>
+                            <td class="text-center">@(++serial)</td>
+                            <td class="text-center">@category.Name</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}

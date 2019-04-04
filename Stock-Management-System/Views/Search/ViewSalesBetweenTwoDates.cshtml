@@ -1,0 +1,67 @@
+﻿@model Stock_Management_System.Models.ViewSalesBetweenTwoDates
+
+@{
+    ViewBag.Title = "ViewSalesBetweenTwoDates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles
+{
+    <link href="~/Content/jquery-ui-1.12.1.custom/jquery-ui.css" rel="stylesheet" />
+}
+
+<h2>View Sales Between Two Dates</h2>
+<hr />
+@using (Html.BeginForm("ViewSalesBetweenTwoDates", "Search"))
+{
+    <div>
+        <div class="form-group" style="float: left;">
+            @Html.LabelFor(v => v.FromDate, "From Date:")
+            @Html.TextBoxFor(v => v.FromDate, new { @Class = "form-control" })
+            @Html.ValidationMessageFor(v => v.FromDate)
+        </div>
+
+        <div class="form-group" style="float: right;">
+            <div class="form-group">
+                @Html.LabelFor(v => v.ToDate, "To Date:")
+                @Html.TextBoxFor(v => v.ToDate, new {@Class = "form-control"})
+                @Html.ValidationMessageFor(v => v.ToDate)
+            </div>
+            <div class="form-group text-center" style="padding-right: 750px;">
+                <button type="button" onclick="Search()" class="btn btn-warning" style="width: 100px;"><b>Search</b></button>
+            </div>
+        </div>
+        <br /><br /><br /><br /><br /><br />
+        <hr />
+        <table class="table" id="dateSearchTable"></table>
+    </div>
+}
+
+@section scripts
+{
+    <script src="~/Content/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#FromDate").datepicker();
+            $("#ToDate").datepicker();
+        });
+
+        function Search() {
+            $('#dateSearchTable').empty();
+            $('#dateSearchTable').addClass("table table-bordered");
+            $('#dateSearchTable').append('<thead class="thead-dark"><tr><th style="text-align: center;">#Sl. No.</th><th style="text-align: center;">Item</th><th style="text-align: center;">Sell Quantity</th></tr></thead><tbody style="text-align: center;">');
+            var sum = 0;
+
+            $.ajax({
+                url: '/Search/GetStockOutLists',
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    $.each(data, function (key, value) {
+                        $('#dateSearchTable').append('<tr><td>' + ++sum + '</td><td>' + value.ItemId + '</td><td>' + value.StockOutQuantity + '</td></tr>');
+                    });
+                }
+            });
+        }
+    </script>
+}

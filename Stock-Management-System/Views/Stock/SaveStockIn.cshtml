@@ -1,0 +1,91 @@
+﻿@model Stock_Management_System.Models.StockIn
+
+@{
+    ViewBag.Title = "Save Stock-In";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Save Stock-In</h2>
+<hr />
+@using (Html.BeginForm("SaveStockIn", "Stock"))
+{
+    <div>
+        <div class="form-group">
+            @Html.LabelFor(s => s.CompanyId, "Company Name:")
+            @Html.DropDownListFor(s => s.CompanyId, new SelectList(ViewBag.companies, "Id", "Name"), "- Select Any Company -", new { @Class = "form-control", OnChange = "WhenCompanyChange(this.value)" })
+            @Html.ValidationMessageFor(s => s.CompanyId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.ItemId, "Item:")
+
+            <select class="form-control" id="ItemId" name="ItemId">
+                <option value="0">- Select Any Item -</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.RecorderLevel, "Recorder Level:")
+            @Html.TextBoxFor(s => s.RecorderLevel, new { @Class = "form-control text-center" })
+            @Html.ValidationMessageFor(s => s.RecorderLevel)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.AvailableQuantity, "Available Quantity:")
+            @Html.TextBoxFor(s => s.AvailableQuantity, new { @Class = "form-control text-center" })
+            @Html.ValidationMessageFor(s => s.AvailableQuantity)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.StockInQuantity, "Stock In Quantity:")
+            @Html.TextBoxFor(s => s.StockInQuantity, new { @Class = "form-control text-center" })
+            @Html.ValidationMessageFor(s => s.StockInQuantity)
+        </div>
+        <button type="submit" class="btn btn-warning" style="width: 282px;"><b>Save</b></button>
+    </div>
+}
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        function WhenCompanyChange(val) {
+            var sum = 0;
+            $("#ItemId").empty();
+            $("#ItemId").append('<option value="0">-Select Any Item-</option>');
+            $.ajax({
+                url: '/Stock/GetSelectedItems',
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    $.each(data, function (key, value) {
+                        if (value.CompanyId == val) {
+                            $("#ItemId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                            $('#AvailableQuantity').val(sum = sum + 1);
+                        }
+                        $('#RecorderLevel').val(value.RecordLevel);
+                    });
+                }
+            });
+
+            $('#AvailableQuantity').empty();
+            var companyId = $("#CompanyId option:selected").val();
+
+            $.ajax({
+                url: '/Stock/GetAllStockIn',
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    $.each(data, function (key, value) {
+
+                        if (value.StockInQuantity != 0) {
+                            if (value.CompanyId == companyId) {
+                                $('#AvailableQuantity').val(value.AvailableQuantity - value.StockInQuantity);
+                            }
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+}

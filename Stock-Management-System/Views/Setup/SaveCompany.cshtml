@@ -1,0 +1,44 @@
+﻿@model Stock_Management_System.Models.Company
+
+@{
+    ViewBag.Title = "Setup Company";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    int serialNo = 0;
+}
+
+<h2>Setup Company</h2>
+<hr />
+@using (Html.BeginForm("SaveCompany", "Setup"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c => c.Name, "Provide Company Name:")
+        @Html.TextBoxFor(c => c.Name, new { @Class = "form-control" })
+        <br />
+        <button type="submit" class="btn btn-info" style="width: 280px;">Save</button>
+    </div>
+    <hr />
+    <div>
+        <h4>Company Lists</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">Sl. No.</th>
+                    <th class="text-center">Company Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.companies != null)
+                {
+                    foreach (var company in ViewBag.companies)
+                    {
+                        <tr>
+                            <td class="text-center">@(++serialNo)</td>
+                            <td class="text-center">@company.Name</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -1,0 +1,113 @@
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Stock-Management-System.dll.config
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Stock-Management-System.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Stock-Management-System.pdb
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Antlr3.Runtime.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\EntityFramework.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\EntityFramework.SqlServer.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Newtonsoft.Json.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Owin.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.Helpers.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.Mvc.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.Optimization.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.Razor.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.Deployment.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.Razor.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\WebGrease.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.Helpers.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.Mvc.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.Optimization.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.Razor.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.Deployment.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.Razor.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Newtonsoft.Json.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Antlr3.Runtime.pdb
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\EntityFramework.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\EntityFramework.SqlServer.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\obj\Debug\Stock_Management_System.Migrations.Ver1.resources
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\obj\Debug\Stock-Management-System.csproj.GenerateResource.Cache
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\obj\Debug\Stock-Management-System.dll
+C:\Users\IT Officer\Documents\Visual Studio 2013\Projects\Stock-Management-System\Stock-Management-System\obj\Debug\Stock-Management-System.pdb
+G:\Stock-Management-System\Stock-Management-System\bin\Stock-Management-System.dll.config
+G:\Stock-Management-System\Stock-Management-System\bin\Stock-Management-System.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Stock-Management-System.pdb
+G:\Stock-Management-System\Stock-Management-System\bin\Antlr3.Runtime.dll
+G:\Stock-Management-System\Stock-Management-System\bin\EntityFramework.dll
+G:\Stock-Management-System\Stock-Management-System\bin\EntityFramework.SqlServer.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.Core.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.Owin.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Host.SystemWeb.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Cookies.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Facebook.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Google.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.OAuth.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Twitter.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Web.Infrastructure.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Newtonsoft.Json.dll
+G:\Stock-Management-System\Stock-Management-System\bin\Owin.dll
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.Helpers.dll
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.Mvc.dll
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.Optimization.dll
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.Razor.dll
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.Deployment.dll
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.dll
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.Razor.dll
+G:\Stock-Management-System\Stock-Management-System\bin\WebGrease.dll
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.Helpers.xml
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.Mvc.xml
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.Optimization.xml
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.Razor.xml
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.xml
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.Deployment.xml
+G:\Stock-Management-System\Stock-Management-System\bin\System.Web.WebPages.Razor.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Newtonsoft.Json.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Antlr3.Runtime.pdb
+G:\Stock-Management-System\Stock-Management-System\bin\EntityFramework.xml
+G:\Stock-Management-System\Stock-Management-System\bin\EntityFramework.SqlServer.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.Core.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.Owin.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Host.SystemWeb.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Facebook.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Cookies.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.OAuth.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Google.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.Twitter.xml
+G:\Stock-Management-System\Stock-Management-System\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+G:\Stock-Management-System\Stock-Management-System\obj\Debug\Stock-Management-System.csprojResolveAssemblyReference.cache
+G:\Stock-Management-System\Stock-Management-System\obj\Debug\Stock_Management_System.Migrations.Ver1.resources
+G:\Stock-Management-System\Stock-Management-System\obj\Debug\Stock-Management-System.csproj.GenerateResource.Cache
+G:\Stock-Management-System\Stock-Management-System\obj\Debug\Stock-Management-System.dll
+G:\Stock-Management-System\Stock-Management-System\obj\Debug\Stock-Management-System.pdb

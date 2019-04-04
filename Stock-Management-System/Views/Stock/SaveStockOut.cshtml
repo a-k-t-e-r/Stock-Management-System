@@ -1,0 +1,150 @@
+﻿@using Stock_Management_System.Models
+@model Stock_Management_System.Models.StockOut
+
+@{
+    ViewBag.Title = "Save Stock-Out";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="text-align: center;"><i>Save Stock-Out</i></h2>
+<hr />
+@using (Html.BeginForm("SaveStockOut", "Stock"))
+{
+    <div>
+        <div class="form-group">
+            @Html.LabelFor(s => s.CompanyId, "Company Name:")
+            @Html.DropDownListFor(s => s.CompanyId, new SelectList(ViewBag.companies, "Id", "Name"), "- Select Any Company -", new { @Class = "form-control", OnChange = "WhenCompanyChange(this.value)" })
+            @Html.ValidationMessageFor(s => s.CompanyId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.ItemId, "Item:")
+
+            <select class="form-control" id="ItemId" name="ItemId">
+                <option value="0">- Select Any Item -</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.RecorderLevel, "Recorder Level:")
+            @Html.TextBoxFor(s => s.RecorderLevel, new { @Class = "form-control text-center" })
+            @Html.ValidationMessageFor(s => s.RecorderLevel)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.AvailableQuantity, "Available Quantity:")
+            @Html.TextBoxFor(s => s.AvailableQuantity, new { @Class = "form-control text-center" })
+            @Html.ValidationMessageFor(s => s.AvailableQuantity)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(s => s.StockOutQuantity, "Stock Out Quantity:")
+            @Html.TextBoxFor(s => s.StockOutQuantity, new { @Class = "form-control text-center" })
+            @Html.ValidationMessageFor(s => s.StockOutQuantity)
+        </div>
+        <div style="width: 280px;">
+            <button type="button" onclick="AddButton()" class="btn btn-danger" style="float: right; width: 100px;"><b>Add</b></button>
+        </div>
+        <br />
+    </div>
+    <hr />
+    <div>
+        <table class="table table-bordered" id="stockOutTable"></table>
+    </div>
+
+    <div style="float: right;">
+        <button type="button" onclick="SellButton()" class="btn btn-info" style="width: 100px;"><b>S E L L</b></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" onclick="DamageButton()" class="btn btn-dark" style="width: 100px;"><b>Damage</b></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" onclick="LostButton()" class="btn btn-warning" style="width: 100px;"><b>Lost</b></button>
+    </div>
+    <br /><br />
+}
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        function WhenCompanyChange(val) {
+            var sum = 0;
+            $("#ItemId").empty();
+            $("#ItemId").append('<option value="0">-Select Any Item-</option>');
+            $.ajax({
+                url: '/Stock/GetSelectedItems',
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    $.each(data, function (key, value) {
+                        if (value.CompanyId == val) {
+                            $("#ItemId").append('<option value="' + value.Id + '">' + value.Name + '</option>');
+                            $('#AvailableQuantity').val(sum = sum + 1);
+                        }
+                        $('#RecorderLevel').val(value.RecordLevel);
+                    });
+                }
+            });
+        }
+
+        var tableDataset = [];
+        var companyIdDataset = [];
+        var itemIdDataset = [];
+        var recorderDataset = [];
+        var availableQuantityDataset = [];
+        var stockOutQuantityDataset = [];
+
+        var sum = 0;
+        function AddButton() {
+            companyIdDataset[sum] = $('#CompanyId').val();
+            itemIdDataset[sum] = $('#ItemId').val();
+            recorderDataset[sum] = $('#RecorderLevel').val();
+            availableQuantityDataset[sum] = $('#AvailableQuantity').val();
+            stockOutQuantityDataset[sum] = $('#StockOutQuantity').val();
+
+            $('#stockOutTable').empty();
+            $('#stockOutTable').addClass("table table-bordered");
+            $('#stockOutTable').append('<thead class="thead-dark"><tr><th style="text-align: center;">Serial Number</th><th style="text-align: center;">Item</th><th style="text-align: center;">Company</th><th style="text-align: center;">Quantity</th></tr></thead><tbody style="text-align: center;">');
+            tableDataset[sum] = '<tr><td>' + (sum + 1) + '</td><td>' + $('#ItemId option:selected').text() + ' </td><td>' + $('#CompanyId option:selected').text() + '</td><td> ' + $('#StockOutQuantity').val() + '</td></tbody>';
+
+            for (var i = 0; i < tableDataset.length; i++) {
+                $('#stockOutTable').append(tableDataset[i]);
+            }
+
+            $('select>option:eq(0)').prop('selected', true);
+            $('#ItemId').val(0);
+            $('#RecorderLevel').val("");
+            $('#AvailableQuantity').val("");
+            $('#StockOutQuantity').val("");
+
+            sum++;
+        }
+
+        function SellButton() {
+            for (var index = 0; index < companyIdDataset.length; index++) {
+                $.ajax({
+                    url: '/Stock/SaveStockOut',
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { CompanyId: companyIdDataset[index], ItemId: itemIdDataset[index], RecorderLevel: recorderDataset[index], AvailableQuantity: availableQuantityDataset[index], StockOutQuantity: stockOutQuantityDataset[index] },
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            }
+            location.reload();
+        }
+
+        function DamageButton() {
+            $('#stockOutTable').empty();
+            $('#stockOutTable').addClass("table table-bordered");
+            $('#stockOutTable').append('<thead class="thead-dark"><tr><th style="text-align: center;">Serial Number</th><th style="text-align: center;">Item</th><th style="text-align: center;">Company</th><th style="text-align: center;">Quantity</th></tr></thead><tbody style="text-align: center;"><tr style="color: red;"><td colspan="4"><b>Stock Products Damage</b><br/>Refresh Page.</td></tr></tbody>');
+        }
+
+        function LostButton() {
+            $('#stockOutTable').empty();
+            $('#stockOutTable').addClass("table table-bordered");
+            $('#stockOutTable').append('<thead class="thead-dark"><tr><th style="text-align: center;">Serial Number</th><th style="text-align: center;">Item</th><th style="text-align: center;">Company</th><th style="text-align: center;">Quantity</th></tr></thead><tbody style="text-align: center;"><tr style="color: red;"><td colspan="4"><b>Stock Lost</b><br/>You Have To Refresh Page.</td></tr></tbody>');
+        }
+    </script>
+}

@@ -1,0 +1,44 @@
+﻿@model Stock_Management_System.Models.Item
+
+@{
+    ViewBag.Title = "Setup Item";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Setup Item</h2>
+<hr />
+
+@using (Html.BeginForm("SaveItem", "Setup"))
+{
+    <div class="text-danger" style="float: left;">
+        <div class="form-group">
+            @Html.LabelFor(i => i.CategoryId, "Category: ")
+            @Html.DropDownListFor(i => i.CategoryId, new SelectList(ViewBag.categories, "Id", "Name"), "<Select Any Category>", new { @class = "form-control" })
+            @Html.ValidationMessageFor(i => i.CategoryId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(i => i.CompanyId, "Company: ")
+            @Html.DropDownListFor(i => i.CompanyId, new SelectList(ViewBag.companies, "Id", "Name"), "<Select Any Company>", new { @class = "form-control" })
+            @Html.ValidationMessageFor(i => i.CompanyId)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(i => i.Name, "Item Name: ")
+            @Html.TextBoxFor(i => i.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(i => i.Name)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(i => i.RecordLevel, "Record Level: ")
+            @(ViewBag.numOfItems == 0 ? Html.TextBoxFor(i => i.RecordLevel, new { @class = "form-control", @Value = 1 }) : Html.TextBoxFor(i => i.RecordLevel, new { @class = "form-control", @Value = ++ViewBag.numOfItems }))
+            @Html.ValidationMessageFor(i => i.RecordLevel)
+        </div>
+        <button type="submit" class="btn btn-success" style="width: 283px;"><b>S A V E</b></button>
+    </div>
+    <br />
+    <div class="btn btn-default" style="float: right;">
+        @Html.ActionLink("Delete All Previous Items", "DeleteAllItems")
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+}

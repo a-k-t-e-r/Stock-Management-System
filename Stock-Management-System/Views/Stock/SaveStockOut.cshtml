@@ -93,6 +93,7 @@
         var recorderDataset = [];
         var availableQuantityDataset = [];
         var stockOutQuantityDataset = [];
+        var productStatusDataset;
 
         var sum = 0;
         function AddButton() {
@@ -122,11 +123,13 @@
 
         function SellButton() {
             for (var index = 0; index < companyIdDataset.length; index++) {
+                productStatusDataset = "Sell";
+
                 $.ajax({
                     url: '/Stock/SaveStockOut',
                     type: "POST",
                     dataType: "JSON",
-                    data: { CompanyId: companyIdDataset[index], ItemId: itemIdDataset[index], RecorderLevel: recorderDataset[index], AvailableQuantity: availableQuantityDataset[index], StockOutQuantity: stockOutQuantityDataset[index] },
+                    data: { CompanyId: companyIdDataset[index], ItemId: itemIdDataset[index], RecorderLevel: recorderDataset[index], AvailableQuantity: availableQuantityDataset[index], StockOutQuantity: stockOutQuantityDataset[index], ProductStatus: productStatusDataset },
                     success: function (data) {
                         alert(data);
                     }
@@ -136,15 +139,37 @@
         }
 
         function DamageButton() {
-            $('#stockOutTable').empty();
-            $('#stockOutTable').addClass("table table-bordered");
-            $('#stockOutTable').append('<thead class="thead-dark"><tr><th style="text-align: center;">Serial Number</th><th style="text-align: center;">Item</th><th style="text-align: center;">Company</th><th style="text-align: center;">Quantity</th></tr></thead><tbody style="text-align: center;"><tr style="color: red;"><td colspan="4"><b>Stock Products Damage</b><br/>Refresh Page.</td></tr></tbody>');
+            for (var index = 0; index < companyIdDataset.length; index++) {
+                productStatusDataset = "Damage";
+
+                $.ajax({
+                    url: '/Stock/SaveStockOut',
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { CompanyId: companyIdDataset[index], ItemId: itemIdDataset[index], RecorderLevel: recorderDataset[index], AvailableQuantity: availableQuantityDataset[index], StockOutQuantity: stockOutQuantityDataset[index], ProductStatus: productStatusDataset },
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            }
+            location.reload();
         }
 
         function LostButton() {
-            $('#stockOutTable').empty();
-            $('#stockOutTable').addClass("table table-bordered");
-            $('#stockOutTable').append('<thead class="thead-dark"><tr><th style="text-align: center;">Serial Number</th><th style="text-align: center;">Item</th><th style="text-align: center;">Company</th><th style="text-align: center;">Quantity</th></tr></thead><tbody style="text-align: center;"><tr style="color: red;"><td colspan="4"><b>Stock Lost</b><br/>You Have To Refresh Page.</td></tr></tbody>');
+            for (var index = 0; index < companyIdDataset.length; index++) {
+                productStatusDataset = "Lost";
+
+                $.ajax({
+                    url: '/Stock/SaveStockOut',
+                    type: "POST",
+                    dataType: "JSON",
+                    data: { CompanyId: companyIdDataset[index], ItemId: itemIdDataset[index], RecorderLevel: recorderDataset[index], AvailableQuantity: availableQuantityDataset[index], StockOutQuantity: stockOutQuantityDataset[index], ProductStatus: productStatusDataset },
+                    success: function (data) {
+                        alert(data);
+                    }
+                });
+            }
+            location.reload();
         }
     </script>
 }

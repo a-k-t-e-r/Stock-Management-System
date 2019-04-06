@@ -33,5 +33,9 @@ namespace Stock_Management_System.Models
         [Required]
         [Column(TypeName = "decimal")]
         public decimal StockOutQuantity { get; set; }
+
+        [Required]
+        [Column(TypeName = "varchar")]
+        public string ProductStatus { get; set; }
     }
 }
